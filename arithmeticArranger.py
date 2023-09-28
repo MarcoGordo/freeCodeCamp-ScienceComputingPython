@@ -1,2 +1,4 @@
-// Aritmetic Arranger
-print("comenzamos ")
+# Aritmetic Arranger
+
+def arithmetic_arranger(arrayOfOps , myBool):
+    print("Hello")
