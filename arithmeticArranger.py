@@ -19,5 +19,6 @@ def arithmetic_arranger(arrayOfOps, myBool):
     print(part1)
     print(leosona)
     print(part2)
+    print('ok')
 
 arithmetic_arranger(['45+26'], True)
