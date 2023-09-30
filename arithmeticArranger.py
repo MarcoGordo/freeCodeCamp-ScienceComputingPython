@@ -1,13 +1,15 @@
 # Aritmetic Arranger
 
 def arithmetic_arranger(arrayOfOps, myBool):
-    operations = ['+', '-', '*', '/']
+    operations = ['+', '-']
     part1 = ''
     part2 = ''
     leosona = ''
+    line = ''
     whiteSpaces = 1
     i = 0
     mySignal = True
+    formatArray = []
     #spliting the strings
     for element in arrayOfOps:
         for char in element:
@@ -28,14 +30,14 @@ def arithmetic_arranger(arrayOfOps, myBool):
         while(i < whiteSpaces):
             part1 = ' ' + part1  
             i += 1                  
-    toPrint = [ ' ' + part1 , leosona + part2]
-    for element in toPrint:
-        print(element)
-    for char in toPrint[1] :
-        print('-' , end='')
-    print()
+    for char in  ' ' + part1 :
+        line += '-'
+    toPrint = ' ' + part1 + '\n' + leosona + part2 + '\n' + line     
     if myBool == True :
-        print(' ' + str(eval(arrayOfOps[0][0:len(arrayOfOps)-2])))
+        toPrint += '\n' + ' ' + str(eval(arrayOfOps[0][0:len(arrayOfOps)-2]))
+        formatArray.append(toPrint)
+    else:
+        formatArray.append(toPrint)    
+    return print(formatArray[0])
         
-        
-arithmetic_arranger(['4505 * 26'], False)
+print(arithmetic_arranger(['235 + 52'], True))
