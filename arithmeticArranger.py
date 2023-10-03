@@ -14,7 +14,12 @@ def arithmetic_arranger(problems , solve = False):
         operand1 = firstProblem[0]
         operator = firstProblem[1]
         operand2 = firstProblem[2]
-
+        if operator not in ['+' , '-']:
+            return "Error: Operator must be '+' or '-'."
+        if not (operand1.isnumeric() and operand2.isnumeric()):
+            return "Error: Numbers must only contain digits."
+        if not(len(operand1) < 5 and len(operand2) < 5):
+            return "Error: Numbers cannot be more than four digits."
         max_length = max(len(operand1), len(operand2)) + 2
         top_line += operand1.rjust(max_length) + '    '
         middle_line += operator + operand2.rjust(max_length - 1) + '    '
