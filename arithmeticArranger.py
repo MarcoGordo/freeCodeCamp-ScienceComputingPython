@@ -1,43 +1,19 @@
 # Aritmetic Arranger
 
-def arithmetic_arranger(arrayOfOps, myBool):
-    operations = ['+', '-']
-    part1 = ''
-    part2 = ''
-    leosona = ''
-    line = ''
-    whiteSpaces = 1
-    i = 0
-    mySignal = True
-    formatArray = []
-    #spliting the strings
-    for element in arrayOfOps:
-        for char in element:
-            if char.isnumeric() and mySignal:
-                part1 += char
-            elif char in operations:
-                leosona = char
-                mySignal = False
-            elif char.isnumeric() and not mySignal:
-                part2 += char
-    # Adding the Format            
-    whiteSpaces = abs(len(part1) - len(part2))           
-    if len(part1) > len(part2):
-        while(i < whiteSpaces):
-            part2 = ' ' + part2  
-            i +=1
+def arithmetic_arranger(problems):
+    base_line = ''
+    if(len(problems)) > 5:
+        return 'Error: Too many problems.'
+    arranged_problems = [problems[0], problems[1], problems[2]] 
+    firstProblem = problems[0].split()
+    print(firstProblem)
+    if(len(firstProblem[0]) >= len(firstProblem[2])):
+        for char in ' ' + firstProblem[0] : 
+            base_line += '-'
     else:
-        while(i < whiteSpaces):
-            part1 = ' ' + part1  
-            i += 1                  
-    for char in  ' ' + part1 :
-        line += '-'
-    toPrint = ' ' + part1 + '\n' + leosona + part2 + '\n' + line     
-    if myBool == True :
-        toPrint += '\n' + ' ' + str(eval(arrayOfOps[0][0:len(arrayOfOps)-2]))
-        formatArray.append(toPrint)
-    else:
-        formatArray.append(toPrint)    
-    return print(formatArray[0])
-        
-print(arithmetic_arranger(['235 + 52'], True))
+        for char in ' ' + firstProblem[2] : 
+            base_line += '-'    
+    arranged_problem  = ' ' + firstProblem[0] + '\n' + firstProblem[1] + ' ' + firstProblem[2] + '\n' + base_line
+    print(arranged_problem)
+    return arranged_problems 
+print(arithmetic_arranger(['235 + 52','11 + 3' , '5 + 1002']))
