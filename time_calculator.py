@@ -4,6 +4,7 @@ def add_time(start_time , duration_time,  day='Monday'):
     step_one = start_time.split(" ")
     am_or_pm = ["AM" , "PM"]
     moment_of_day = am_or_pm[0]
+    days_after = "next day" 
     #Spliting arguments
     
     start_time_div = step_one[0].split(":")
@@ -23,20 +24,23 @@ def add_time(start_time , duration_time,  day='Monday'):
     
     #working the strings
     
+    if total_of_days_after > 0:
+        days_after = str(total_of_days_after + 1) + " days later"
+    
     if total_of_minutes/60 > 1:
         total_of_hours += total_of_minutes//60 
         total_of_minutes -= (total_of_minutes//60)*60
         if total_of_minutes/10 < 1:     
-            string_for_back = str(total_of_hours) + ":" + "0"+ str(total_of_minutes) + " " + moment_of_day
+            string_for_back = str(total_of_hours) + ":" + "0"+ str(total_of_minutes) + " " + moment_of_day + " (" + days_after + ")"
             return string_for_back
         
-        string_for_back = str(total_of_hours) + ":" + str(total_of_minutes) + " " + moment_of_day
+        string_for_back = str(total_of_hours) + ":" + str(total_of_minutes) + " " + moment_of_day + " (" + days_after + ")"
         return string_for_back
     
     else:
-        string_for_back = str(total_of_hours) + ":" + str(total_of_minutes) + " " + moment_of_day
+        string_for_back = str(total_of_hours) + ":" + str(total_of_minutes) + " " + moment_of_day + " (" + days_after + ")"
         return string_for_back         
     
 
 
-print(add_time("11:43 PM","24:20")) 
+print(add_time("10:10 PM", "3:30")) 
